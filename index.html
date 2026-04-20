@@ -579,18 +579,18 @@
 
         <div id="preorderFormWrap" class="px-6 py-6 md:px-8 md:py-8">
           <form id="preorderForm" action="https://formspree.io/f/mdaynqzb" method="POST" class="space-y-5">
-            <input type="hidden" id="preorderColorInput" name="<span data-i18n="modal_color_label">Selected Color</span>" value="">
-            <input type="hidden" id="preorderMotifInput" name="<span data-i18n="modal_motif_label">Selected Motif</span>" value="">
-            <input type="hidden" name="_subject" value="Alchemist <span data-i18n="modal_badge">Preorder Request</span>">
+            <input type="hidden" id="preorderColorInput" name="selected_color" value="">
+            <input type="hidden" id="preorderMotifInput" name="selected_motif" value="">
+            <input type="hidden" name="_subject" value="Alchemist Preorder Request">
 
             <div class="grid gap-5 md:grid-cols-2">
               <div class="preorder-field md:col-span-1">
                 <label for="preorderName"><span data-i18n="modal_name_label">Customer Name</span></label>
-                <input id="preorderName" name="<span data-i18n="modal_name_label">Customer Name</span>" type="text" required class="preorder-input rounded-sm" autocomplete="name">
+                <input id="preorderName" name="customer_name" type="text" required class="preorder-input rounded-sm" autocomplete="name">
               </div>
               <div class="preorder-field md:col-span-1">
-                <label for="preorder<span data-i18n="modal_email_label">Email</span>"><span data-i18n="modal_email_label">Email</span></label>
-                <input id="preorder<span data-i18n="modal_email_label">Email</span>" name="<span data-i18n="modal_email_label">Email</span>" type="email" required class="preorder-input rounded-sm" autocomplete="email">
+                <label for="preorderEmail"><span data-i18n="modal_email_label">Email</span></label>
+                <input id="preorderEmail" name="customer_email" type="email" required class="preorder-input rounded-sm" autocomplete="email">
               </div>
             </div>
 
@@ -607,7 +607,7 @@
 
             <div class="preorder-field">
               <label for="preorderNotes"><span data-i18n="modal_notes_label">Optional Message / Notes</span></label>
-              <textarea id="preorderNotes" name="<span data-i18n="modal_notes_label">Optional Message / Notes</span>" class="preorder-textarea rounded-sm" placeholder="Tell us anything you’d like us to know." data-i18n-placeholder="modal_notes_placeholder"></textarea>
+              <textarea id="preorderNotes" name="customer_notes" class="preorder-textarea rounded-sm" placeholder="Tell us anything you’d like us to know." data-i18n-placeholder="modal_notes_placeholder"></textarea>
             </div>
 
             <div class="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
@@ -935,7 +935,7 @@
       if (preorderButton) preorderButton.disabled = !ready;
       if (preorderHint) preorderHint.textContent = ready
         ? `Ready to preorder · ${formatSelectionLabel(designStudioState.color)} × ${formatSelectionLabel(designStudioState.motif)}`
-        : '<span data-i18n="design_preorder_hint">Select a color and motif to continue.</span>';
+        : 'Select a color and motif to continue.';
       syncPreorderSelectionFields();
     }
 
@@ -970,7 +970,7 @@
       preorderSuccessState?.classList.remove('is-visible');
       setPreorderStatus('');
       preorderSubmitButton?.removeAttribute('disabled');
-      if (preorderSubmitButton) preorderSubmitButton.textContent = '<span data-i18n="modal_submit">Submit Preorder</span>';
+      if (preorderSubmitButton) preorderSubmitButton.textContent = 'Submit Preorder';
     }
 
     function updateDesignButtonStates() {
@@ -1078,7 +1078,7 @@
       } catch (error) {
         setPreorderStatus(t('submit_error'), true);
         preorderSubmitButton?.removeAttribute('disabled');
-        if (preorderSubmitButton) preorderSubmitButton.textContent = '<span data-i18n="modal_submit">Submit Preorder</span>';
+        if (preorderSubmitButton) preorderSubmitButton.textContent = 'Submit Preorder';
       }
     });
 
