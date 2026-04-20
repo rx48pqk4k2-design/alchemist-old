@@ -1,0 +1,60 @@
+Alchemist 交互素材命名规则
+===========================
+
+你后面把新素材放进下面这些位置即可，不需要改页面结构。
+
+一、颜色切换（Product 区域 + 首页主图）
+------------------------------------
+每个颜色一个文件夹：
+assets/variants/colors/jade/
+assets/variants/colors/crimson/
+assets/variants/colors/ochre/
+assets/variants/colors/mist/
+
+每个颜色文件夹里建议放：
+- product-main.jpg / .png / .webp
+- product-detail.jpg / .png / .webp
+- design-preview.jpg / .png / .webp
+- collection-hero.jpg / .png / .webp（可选）
+
+二、文样切换（Design 区域）
+--------------------------
+每个文样一个文件夹：
+assets/variants/motifs/bamboo/
+assets/variants/motifs/phoenix/
+assets/variants/motifs/cloud/
+assets/variants/motifs/lotus/
+
+每个文样文件夹里建议放：
+- design-preview.jpg / .png / .webp
+
+三、颜色 + 文样组合图（优先级最高，可选）
+--------------------------------------
+assets/variants/combinations/jade-bamboo/design-preview.jpg
+assets/variants/combinations/jade-phoenix/design-preview.jpg
+assets/variants/combinations/jade-cloud/design-preview.jpg
+assets/variants/combinations/jade-lotus/design-preview.jpg
+
+四、当前系统已经支持
+--------------------
+- 色块点击
+- 文样点击
+- Product 主图 / 细节图切换
+- Design 右侧预览切换
+- Product / Design 两处颜色同步
+- 选中态、过渡动画、点击反馈
+- 本地记住上次选择
+
+五、读取优先级
+--------------
+Design 右侧预览：
+1. combinations/{color}-{motif}/design-preview
+2. motifs/{motif}/design-preview
+3. colors/{color}/design-preview
+4. 默认图
+
+Product 区域：
+1. colors/{color}/product-main
+2. colors/{color}/product-detail
+3. colors/{color}/collection-hero
+4. 默认图
